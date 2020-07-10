@@ -1,0 +1,112 @@
+#%RAML 1.0
+title: QWASI
+baseUri: /qwasi
+description: Qwasi Api 
+/data-insert:
+  post:
+    queryParameters:
+      MACID:
+        type: string
+        displayName: MACID
+        required: true
+        example: "123:345:566"
+      FIRST_NAME:
+        displayName: FIRST NAME
+        type: string
+        required: true 
+        example: "MAnideep"
+      LAST_NAME:
+        displayName: LAST NAME
+        type: string
+        required: true
+        example: "charugundla"
+      CONTACT_VALUE:
+        displayName: CONTACT VALUE
+        type: number
+        required: true
+      CONTACT_TYPE:
+        displayName: CONTACT TYPE
+        required: false
+        type: string
+        example: "Land Phone"
+    responses:
+      200:
+        body:
+          application/json:
+            example:
+              {
+                MACID:"12:45:56:65"
+
+                FIRST NAME:"manideep"
+
+                LAST NAME:"charugundla"
+
+                CONTACT VALUE:"9100690410"
+                
+                CONTACT TYPE:"Mobile Phone"
+              }
+/data-Fetch:
+  get:
+    queryParameters:
+      MACID:
+        displayName: MACID
+        type: string
+        required: true
+        example: "12:65:89"
+          
+    responses:
+      200:
+        body:
+          application/json:
+           example:
+              {
+                MACID:"12:45:56:65"
+
+                FIRST NAME:"manideep"
+
+                LAST NAME:"charugundla"
+
+                CONTACT VALUE:"9100690410"
+                
+                CONTACT TYPE:"Mobile Phone"
+              }
+/Data-update:
+  put:
+    queryParameters:
+      MACID:
+        displayName: MACID
+        type: string
+        required: true
+    responses:
+     "200":
+        body:
+          application/json:
+             example:
+                   {
+                        "Message":"Record Deleted"
+                    }
+/Data-UsingBody:
+  post:
+    body:
+      application/json:
+        example:
+          {
+                MACID:"12:45:56:65"
+
+                FIRST NAME:"manideep"
+
+                LAST NAME:"charugundla"
+
+                CONTACT VALUE:"9100690410"
+                
+                CONTACT TYPE:"Mobile Phone"
+              }
+    responses:
+      200:
+        body:
+          application/json:
+            example:
+              {
+                "Message":"This is using by body in request"
+              }
+          
